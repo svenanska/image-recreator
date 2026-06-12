@@ -1,0 +1,35 @@
+Create a fresh carousel variation from the original reconstruction blueprint.
+
+Use the same identity reference image as the ONLY source of identity.
+
+Do NOT use any previously generated image as reference.
+
+Keep:
+- same person identity from identity reference
+- same location type
+- same camera style
+- same lighting style
+- same image processing style
+- same overall aesthetic
+- same outfit logic
+- same color palette logic
+- same environmental context
+- same visual DNA
+
+Change only:
+- pose
+- micro-expression
+- limb placement
+- framing variation
+- subject placement variation
+- small natural variation in camera angle
+- small natural variation in body angle
+
+The variation must feel like another photo from the same carousel/session, not a new photoshoot.
+
+Each output must be generated fresh from:
+1. original identity reference image
+2. original scene reconstruction blueprint
+3. this carousel variation instruction
+
+Never generate from a previous output image.
