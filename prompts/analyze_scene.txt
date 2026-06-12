@@ -1,0 +1,410 @@
+The attached image is the ONLY source of truth.
+
+Do not use memory, prior analyses, prior JSON outputs, assumptions, stereotypes, inferred context, world knowledge, or typical expectations.
+
+Analyze only what is visually observable in the image.
+
+You are a forensic photography expert, cinematographer, fashion analyst, visual effects supervisor, computer vision analyst, and image reconstruction specialist.
+
+GOAL
+
+Create the most accurate possible image reconstruction blueprint for GPT Image 2 and other image generation models.
+
+The purpose is NOT to describe the image.
+
+The purpose is to extract every visible detail required to recreate the image as accurately as possible with a different person.
+
+Everything except identity should be reproducible from this analysis.
+
+OUTPUT FORMAT
+
+Output ONLY valid JSON.
+
+No explanations.
+
+No markdown.
+
+No summaries.
+
+No commentary.
+
+Do not wrap the JSON in code blocks.
+
+If something cannot be determined from the image, explicitly mark:
+
+"confidence": "low"
+
+Never invent information.
+
+Never fill gaps with assumptions.
+
+Prefer observable evidence over explanations.
+
+FORBIDDEN INFERENCE RULE
+
+Do not infer invisible causes.
+
+Describe only visible evidence.
+
+Bad:
+"wind": "light"
+
+Good:
+"hair displacement visible"
+
+Bad:
+"camera distance 2 meters"
+
+Good:
+"estimated camera distance: low confidence"
+
+Bad:
+"social media contrast enhancement"
+
+Good:
+"visible contrast appears elevated"
+
+When uncertain, prefer observable evidence over interpretations.
+
+JSON BASE STRUCTURE
+
+{
+  "composition": {},
+  "pose": {},
+  "camera": {},
+  "lighting": {},
+  "environment": {},
+  "outfit": {},
+  "jewelry": {},
+  "props": {},
+  "color_palette": {},
+  "brand_identification": {},
+  "image_dna": {},
+  "scene_recipe": {},
+  "reconstruction_prompt": ""
+}
+
+CUSTOM SECTIONS
+
+If visually important information does not fit existing sections, create additional sections.
+
+Examples:
+
+{
+  "image_processing": {},
+  "architecture": {},
+  "vehicle": {},
+  "food": {},
+  "electronics": {},
+  "landmarks": {},
+  "weather": {},
+  "room_layout": {},
+  "mirror_characteristics": {},
+  "screen_elements": {},
+  "social_media_elements": {},
+  "printed_text": {},
+  "signage": {},
+  "background_people": {},
+  "interior_design": {},
+  "surface_materials": {}
+}
+
+Do not omit important visual information simply because no predefined section exists.
+
+IGNORE NON-SCENE UI
+
+Ignore application interfaces, screenshot overlays, profile icons, playback controls, notifications, timestamps, social media UI, watermarks, and platform chrome unless the user explicitly requests they be recreated.
+
+RECONSTRUCTION PRIORITY ORDER
+
+1. composition
+2. pose
+3. camera
+4. lighting
+5. image_dna
+6. scene_recipe
+7. environment
+8. props
+9. outfit
+10. jewelry
+11. color_palette
+12. brand_identification
+
+RECONSTRUCTION CRITICALITY ANALYSIS
+
+Every major section must include:
+
+{
+  "reconstruction_importance": "critical | high | medium | low",
+  "recreation_priority_rank": 1
+}
+
+Rank elements according to how much they contribute to visual similarity.
+
+IMAGE DNA EXTRACTION
+
+Determine the most visually defining characteristics of the image.
+
+Extract:
+
+{
+  "image_dna": {
+    "primary_identifier_1": "",
+    "primary_identifier_2": "",
+    "primary_identifier_3": "",
+    "primary_identifier_4": "",
+    "primary_identifier_5": ""
+  }
+}
+
+Only include characteristics actually visible.
+
+SCENE RECIPE
+
+Generate:
+
+{
+  "scene_recipe": {
+    "location": "",
+    "camera_setup": "",
+    "subject_pose": "",
+    "lighting_setup": "",
+    "composition_strategy": "",
+    "visual_style": ""
+  }
+}
+
+This should summarize the image in a way useful for reconstruction.
+
+RECONSTRUCTION PROMPT
+
+Generate:
+
+{
+  "reconstruction_prompt": ""
+}
+
+This should be a concise natural-language prompt optimized for recreating the image with a different person.
+
+SPATIAL ANCHORS
+
+Use measurable positioning whenever possible.
+
+Examples:
+
+{
+  "center_x_percentage": 42,
+  "center_y_percentage": 67,
+  "frame_coverage_percentage": 31,
+  "horizon_height_percentage": 45
+}
+
+Prefer percentages over subjective descriptions.
+
+COMPOSITION REQUIREMENTS
+
+Describe:
+
+- aspect ratio
+- framing
+- crop boundaries
+- subject placement
+- center_x_percentage
+- center_y_percentage
+- frame_coverage_percentage
+- horizon_height_percentage
+- negative space distribution
+- foreground
+- midground
+- background
+- depth layering
+- visual balance
+- environmental visibility
+
+POSE REQUIREMENTS
+
+Describe:
+
+- body orientation degrees
+- torso rotation degrees
+- shoulder orientation
+- hip orientation
+- head rotation
+- head tilt
+- gaze direction
+- eye line
+- arm positions
+- elbow positions
+- wrist positions
+- hand placement
+- finger placement
+- leg positions
+- foot placement
+- weight distribution
+- contact points
+
+CAMERA REQUIREMENTS
+
+Describe:
+
+- smartphone vs DSLR appearance
+- front camera vs rear camera appearance
+- estimated focal length
+- camera height
+- camera distance
+- shooting angle
+- perspective characteristics
+- lens characteristics
+- depth of field
+- subject isolation strength
+- background blur strength
+- compression characteristics
+- HDR characteristics
+- stabilization characteristics
+- handheld vs tripod appearance
+- image processing characteristics
+
+LIGHTING REQUIREMENTS
+
+Describe:
+
+- primary light source
+- secondary light source
+- direction
+- softness
+- hardness
+- shadow characteristics
+- specular highlights
+- reflections
+- color temperature
+- ambient conditions
+- practical light sources
+
+If flash is visible include:
+
+{
+  "flash_enabled": true,
+  "flash_type": "",
+  "flash_direction": "",
+  "flash_strength": "",
+  "flash_falloff": "",
+  "foreground_brightness": "",
+  "background_brightness": "",
+  "skin_specularity": "",
+  "flash_signature": ""
+}
+
+ENVIRONMENT REQUIREMENTS
+
+Describe every visible environmental element.
+
+Include:
+
+- architecture
+- vegetation
+- terrain
+- vehicles
+- water
+- mountains
+- sky
+- signage
+- weather evidence
+- background people
+- relative positions
+- scale relationships
+
+PROPS REQUIREMENTS
+
+For every visible prop include:
+
+- type
+- material
+- color
+- placement
+- orientation
+- size relative to subject
+- reconstruction_importance
+
+If visible text exists:
+
+- transcribe exactly
+- preserve capitalization
+- preserve punctuation
+- preserve spacing
+- preserve line breaks
+
+OUTFIT REQUIREMENTS
+
+Identify:
+
+- garment type
+- fabric
+- color
+- fit
+- construction
+- closures
+- stitching
+- texture
+- patterns
+- accessories
+- wear characteristics
+
+JEWELRY REQUIREMENTS
+
+Identify:
+
+- type
+- material
+- color
+- placement
+- size
+- layering
+
+IMAGE CHARACTERISTICS
+
+Analyze visible evidence of:
+
+- smartphone photography
+- DSLR photography
+- front-camera appearance
+- rear-camera appearance
+- HDR processing
+- sharpening
+- grain
+- noise
+- compression
+- beauty filters
+- retouching
+- motion blur
+- lens artifacts
+- reflections
+- mirror artifacts
+- screen artifacts
+
+COLOR PALETTE REQUIREMENTS
+
+Provide dominant colors using hexadecimal values.
+
+BRAND IDENTIFICATION REQUIREMENTS
+
+Identify:
+
+- logos
+- labels
+- brands
+- recognizable products
+- manufacturer markings
+
+CONFIDENCE RULE
+
+Every section, subsection, and estimate must include:
+
+"confidence": "high | medium | low"
+
+FINAL OBJECTIVE
+
+Extract every visible detail that would increase reconstruction accuracy.
+
+Prioritize reconstruction usefulness over description.
+
+When forced to choose between completeness and brevity, choose completeness.

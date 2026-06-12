@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recreate a reference scene with a separate identity using OpenAI vision and GPT Image 2.">
+  <title>Image Recreator</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">LOCAL CREATIVE WORKBENCH</p>
+        <h1>Image <span>Recreator</span></h1>
+        <p class="hero-copy">Extract the visual DNA of a reference scene, lock a separate identity, and generate a fresh photo—or a full carousel.</p>
+      </div>
+      <div class="api-status" id="apiStatus"><i></i><span>Checking API key…</span></div>
+    </header>
+
+    <section class="workflow-grid">
+      <aside class="control-panel panel">
+        <div class="panel-heading">
+          <span class="step-index">01</span>
+          <div><p class="kicker">Source material</p><h2>Choose references</h2></div>
+        </div>
+
+        <label class="upload-card" for="sceneInput">
+          <input id="sceneInput" type="file" accept="image/png,image/jpeg,image/webp">
+          <div class="upload-preview" id="scenePreview"><span>+</span></div>
+          <div><strong>Scene reference</strong><small>Composition, pose, camera, light, outfit & style</small></div>
+        </label>
+
+        <label class="upload-card" for="identityInput">
+          <input id="identityInput" type="file" accept="image/png,image/jpeg,image/webp">
+          <div class="upload-preview" id="identityPreview"><span>+</span></div>
+          <div><strong>Identity reference</strong><small>The only source used for the person’s identity</small></div>
+        </label>
+
+        <div class="rule-callout"><span>Identity lock</span>The source subject’s identity is never passed to image generation. Only the uploaded identity image is used.</div>
+
+        <div class="actions">
+          <button id="analyzeBtn" class="button primary">Analyze Scene <span>→</span></button>
+          <button id="promptBtn" class="button" disabled>Build GPT Image 2 Prompt <span>→</span></button>
+          <button id="generateBtn" class="button" disabled>Generate Image <span>✦</span></button>
+        </div>
+
+        <div class="carousel-box">
+          <div><p class="kicker">Session variations</p><h3>Carousel Mode</h3></div>
+          <label>Images <input id="carouselCount" type="number" value="5" min="1" max="10"></label>
+          <button id="carouselBtn" class="button accent" disabled>Generate Carousel <span>↗</span></button>
+          <small>Each image starts fresh from the original identity + blueprint.</small>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <div id="statusBar" class="status-bar idle"><span class="status-dot"></span><span id="statusText">Upload both references to begin.</span></div>
+
+        <article class="panel output-panel">
+          <div class="panel-heading compact">
+            <span class="step-index">02</span>
+            <div><p class="kicker">Forensic blueprint</p><h2>Scene analysis</h2></div>
+            <a id="analysisDownload" class="download-link hidden" download>Download JSON ↓</a>
+          </div>
+          <pre id="analysisOutput" class="code-output empty">analysis.json will appear here</pre>
+        </article>
+
+        <article class="panel output-panel">
+          <div class="panel-heading compact">
+            <span class="step-index">03</span>
+            <div><p class="kicker">Generation instructions</p><h2>GPT Image 2 prompt</h2></div>
+            <a id="promptDownload" class="download-link hidden" download>Download TXT ↓</a>
+          </div>
+          <pre id="promptOutput" class="code-output prompt-output empty">generation_prompt.txt will appear here</pre>
+        </article>
+
+        <article class="panel gallery-panel">
+          <div class="panel-heading compact">
+            <span class="step-index">04</span>
+            <div><p class="kicker">Fresh outputs</p><h2>Generated images</h2></div>
+          </div>
+          <div id="gallery" class="gallery empty-gallery">
+            <div class="gallery-placeholder"><span>✦</span><p>Your generated images will collect here.</p></div>
+          </div>
+        </article>
+      </section>
+    </section>
+  </main>
+  <script src="/static/script.js" defer></script>
+</body>
+</html>
