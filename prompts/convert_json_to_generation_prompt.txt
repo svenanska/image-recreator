@@ -1,0 +1,78 @@
+Convert the provided reconstruction blueprint JSON into a GPT Image 2 generation prompt.
+
+Assume the user will provide a separate identity reference image.
+
+The identity reference image is the ONLY source of identity.
+
+Do not describe or preserve the original person's identity.
+
+Preserve everything else from the reconstruction blueprint:
+
+1. composition
+2. pose
+3. camera
+4. lighting
+5. image DNA
+6. scene recipe
+7. environment
+8. props
+9. outfit
+10. jewelry
+11. color palette
+12. image processing characteristics
+
+Output ONLY the final GPT Image 2 prompt.
+
+The prompt must be copy-paste ready.
+
+Structure the final prompt like this:
+
+IDENTITY LOCK
+
+Use the uploaded identity reference image as the ONLY source of identity.
+
+Preserve:
+- facial identity
+- facial structure
+- eye color
+- skin tone
+- hair color
+- hair texture
+- body proportions
+- visible skin characteristics
+- overall appearance
+
+Do not use the scene reference person’s identity.
+
+SCENE RECREATION
+
+Recreate the scene from the reconstruction blueprint as accurately as possible.
+
+Preserve:
+- exact composition
+- subject placement
+- subject scale
+- crop boundaries
+- foreground/midground/background layout
+- pose and body orientation
+- head angle and gaze direction
+- hand and finger placement
+- leg and foot placement
+- camera height
+- camera distance
+- focal length look
+- smartphone/DSLR style
+- lighting direction
+- flash behavior if present
+- color temperature
+- environment
+- background objects
+- props
+- outfit
+- jewelry
+- image processing characteristics
+- social media/snapshot/film/editorial aesthetic if visible
+
+Do not include screenshot UI, social media overlays, app icons, timestamps, playback controls, or platform chrome unless explicitly requested.
+
+Make the output look like a new authentic photo, not a professional recreation.
