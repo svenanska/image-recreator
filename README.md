@@ -2,6 +2,18 @@
 
 A private, responsive Streamlit app for recreating the visual blueprint of a scene with a separate identity reference. It works from a phone or laptop through a Streamlit web link and keeps the scene and identity sources strictly separated.
 
+## Canonical application architecture
+
+This repository intentionally uses **Streamlit as its only web application layer**:
+
+- `app.py` is the canonical and supported entry point.
+- Start the application with `streamlit run app.py`.
+- `app/` contains reusable OpenAI, prompt-building, and file utility modules; it is not a second web server.
+- The previous FastAPI entry point and standalone `frontend/` assets are not part of the resolved architecture.
+- The editable templates under `prompts/` remain the source templates for analysis, prompt conversion, and carousel variation.
+
+A regression test in `tests/test_project_structure.py` protects this layout and fails if legacy FastAPI/Uvicorn dependencies or frontend files are restored by a future merge.
+
 ## Workflow
 
 1. Upload a **scene reference image**, or paste a direct image/Pinterest-style page URL.
@@ -126,11 +138,12 @@ A private GitHub repository is recommended. Confirm that `.env` and `.streamlit/
 
 ### 2. Create the Streamlit app
 
-1. Sign in at [share.streamlit.io](https://share.streamlit.io/).
+1. Sign in at [share.streamlit.io](https://share.streamlit.io/) and switch to the workspace that owns the repository.
 2. Click **Create app**.
 3. Select the GitHub repository and branch.
-4. Set the main file path to `app.py`.
-5. Open **Advanced settings** before deploying.
+4. Set the entrypoint file path to `app.py`.
+5. Open **Advanced settings**, choose the same supported Python version you use locally, and add the secrets below.
+6. Click **Deploy**. Community Cloud installs the Python packages listed in the root `requirements.txt`.
 
 ### 3. Add Streamlit secrets
 
@@ -149,9 +162,9 @@ OPENAI_IMAGE_QUALITY = "medium"
 
 Only `OPENAI_API_KEY` and `APP_PASSWORD` are required. The rest override defaults.
 
-### 4. Deploy and open the link
+### 4. Open and maintain the deployed app
 
-Click **Deploy**. Once the build finishes, open the generated `https://<app-name>.streamlit.app` link from your phone or laptop and enter `APP_PASSWORD`.
+Once the build finishes, open the generated `https://<app-name>.streamlit.app` link from your phone or laptop and enter `APP_PASSWORD`. Update secrets later from the app's Community Cloud settings; never commit `.streamlit/secrets.toml` or `.env`.
 
 ### Important storage note
 
